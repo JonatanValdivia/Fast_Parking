@@ -1,8 +1,6 @@
 'use strict'
 const $ = (element) => document.querySelector(element);
 const $$ = (element) => document.querySelectorAll(element)
-const data = Date();
-console.log(data)
 
 const criarTabelaPrecos = () =>{
   const sessaoTabelaPrecos = $('.precos').classList.remove('none') 
@@ -19,6 +17,60 @@ const limparInputs = () =>{
   inputs2.forEach(input => input.value = '');
 }
 
+const data = () =>{
+  let data = new Date();
+  let dia = data.getDate();
+  let mesAtual = data.getMonth();
+  let mes = 0;
+  let ano = data.getFullYear();
+  switch(mesAtual){
+    case 0: 
+      mes = '01';
+      break;
+    case 1:
+      mes = '02';
+      break;
+    case 2:
+      mes = '03';
+      break;
+    case 3:
+      mes = '04';
+      break
+    case 4:
+      mes = '05';
+      break;
+    case 5:
+      mes = '06';
+      break;
+    case 6:
+      mes = '07';
+      break;
+    case 7:
+      mes = '08';
+      break;
+    case 8:
+      mes = '09';
+      break;
+    case 9:
+      mes = '10';
+      break;
+    case 10:
+      mes = '11';
+      break;
+    default:
+      mes = '12';
+      break;
+  }
+  if(dia <= 9){
+    return "0"+dia+"/"+mes+"/"+ano;
+  }
+  if(dia > 9){
+    return dia+"/"+mes+"/"+ano;
+  }
+}
+
+data();
+
 const lerBancoDeDados = () => JSON.parse(localStorage.getItem('db')) ?? [];
 
 const criarNovaLinha = (cliente) => {
@@ -28,7 +80,7 @@ const criarNovaLinha = (cliente) => {
     linhaClienteCadastrado.innerHTML = `    
       <td>${cliente.nome}</td>
       <td>${cliente.placa}</td>
-      <td>Data</td>
+      <td>${cliente.data}</td>
       <td>Hora</td>
       <td>
         <button>??????</button>
@@ -79,6 +131,7 @@ const adicionarCliente = () => {
     const dadosCliente = {
       nome: $('#nome').value,
       placa: $('#placa').value,
+      data: data()
     }
     db.push(dadosCliente)
     localStorage.setItem('db', JSON.stringify(db))
