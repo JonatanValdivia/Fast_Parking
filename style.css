@@ -25,6 +25,10 @@ body{
   justify-content: center;
 }
 
+img{
+  margin: 15px 0px;
+}
+
 header{
   width: 100%;
   height: 100px;
@@ -58,6 +62,7 @@ input{
 }
 
 #form input{
+  width: 80%;
   font-size: 1.3rem;
   border-radius: 3px;
 }
@@ -71,6 +76,10 @@ input{
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.inputs label{
+  width: 100%;
 }
 
 #buttons{
@@ -142,6 +151,11 @@ footer{
   padding: 0.2rem;
 }
 
+@keyframes go-back{
+  0% {transform: translateX(1000px);}
+  100% {transform: translateX(0);}
+}
+
 .none{
   display: none;
 }
@@ -181,5 +195,137 @@ footer{
 
 #buttonCancelar{
   background-color: red;
+  color: white;
+}
+
+#sessaoComprovante{
+  margin-top: 5rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#sessaoComprovante > div{
+  width: 40vw;
+  background-color: var(--lightColor);
+  color: var(--fontColor);
+  font-size: 1.5rem;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 0.2rem;
+  margin-top: 2%;
+}
+
+#sessaoComprovante div > h3{
+  padding: 1rem;
+}
+
+#dados{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 5rem;
+}
+
+#dados label{
+  margin-bottom: 1rem;
+}
+
+#acaoImpressao{
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 2rem;
+}
+
+#acaoImpressao > button{
+  width: 6.4rem;
+  height: 2.3rem;
+  font-size: 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 400px){
+  :root{
+    font-size: 65%;
+  }
+
+  header{
+    display: flex;
+    height: auto;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #form{
+    width: 80%;
+  }
+
+  .precos{
+    width: 80%;
+  }
+
+  .table thead {
+    display: none;   
+  }
+
+  .table #tbody td:not(:first-child){
+    display: flex;
+  }
+
+  #tbody td{
+    padding-bottom: 4%;
+  }
+
+  #tbody button{
+    margin-left: 3%;
+  }
+
+
+  #sessaoComprovante{
+    width: 80%;
+  }
+  
+  #sessaoComprovante > div{
+    width: 100%;
+  }
+  
+}
+
+@media (min-width: 400px) and (max-width: 768px){
+  :root{
+    font-size: 65%;
+  }
+
+  header{
+    display: flex;
+    height: auto;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #form{
+    width: 80%;
+  }
+
+  .precos{
+    width: 80%;
+  }
+
+  .table thead {
+    display: none;   
+  }
+
+  .table #tbody td:not(:first-child){
+    display: flex;
+  }
+
+  #tbody td{
+    padding-bottom: 4%;
+  }
+
 }
 
